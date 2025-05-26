@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+  <!-- CSS PART -->
+   <style> 
+
+    *{
+        box-sizing: border-box;
+    
+    }
+    body{
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        background: linear-gradient(135deg, #4b6cb7 0%, #6942ca 100%);
+      color: white;
+      margin: 0%;
+      padding: 30px;
+      display:flex;
+      justify-content: center;
+      height: 100vh;}
+      .mainbox{
+        width: 900px;
+        background:rgba(255,255,255,0.1);
+        padding: 30px;
+        border-radius:50px;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+        backdrop-filter:blur(10px);      }
+        h1{
+          font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+          text-align: center;
+          font-size: 35px;
+          letter-spacing: 2px;
+          font-weight: 700;
+        margin-bottom: 35px;
+        margin-top: 15px;
+        color:rgb(252, 252, 252);
+        text-shadow:  0 6px 7px rgba(0,0,0,10);
+
+          white-space: nowrap;/*prevent text from wrappng*/
+        overflow:hidden;/* hide the text*/
+        width: 0;/*for starting with 0 width*/
+        padding-left: 50px;
+         animation: typing 3s steps(30) forwards, blink 0.7s steps(1) infinite;
+       
+        }
+        @keyframes typing {
+          from{width:0;}
+          to{width: 91%;} 
+        }
+        @keyframes blink {
+          50%{ border-color: transparent; }
+        }
+        label{
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          font-weight: 700;
+          margin-right:10px;
+          font-size: 20px;
+          user-select: none; /*this is used so that user can not select the label text*/
+        }
+         select, option { /* targeting all the options of select*/
+          width:350px;
+          padding: 8px 12px;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          font-size: 13px;
+          font-weight: 500;
+          border: 2px solid rgb(106, 55, 153);
+          border-radius:15px;
+          background: rgb(133, 139, 219) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><polygon points="0,0 10,0 5,5" fill="white"/></svg>') no-repeat right 10px center; /* Custom arrow */
+          appearance: none;
+          background-size: 10px;
+          color:white;
+          letter-spacing: 1px;
+         }
+         input{
+           width:90px;
+          padding: 8px 12px;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          font-size: 12px;
+          font-weight: 500;
+          border: 2px solid rgb(106, 55, 153);
+          border-radius:15px;
+          background: rgb(133, 139, 219) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><polygon points="0,0 10,0 5,5" fill="white"/></svg>') no-repeat right 10px center; /* Custom arrow */
+          appearance: none;
+          background-size: 10px;
+          color:rgb(56, 55, 55);
+          letter-spacing: 1px;
+          
+         }
+
+          select:hover, input[type="number"]:hover,
+    select:focus, input[type="number"]:focus {
+      border-color: #69b5e7;
+      box-shadow: 0 0 6px #6b8bbd;
+      background: rgba(255,255,255, 0.25);
+      color: #ffffff;
+    }
+    button {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      border: none;
+      padding: 12px 20px;
+      font-size: 15px;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-position 0.4s ease, box-shadow 0.3s ease;
+      min-width: 110px;
+      font-weight: 600;
+      box-shadow: 0 5px 15px rgba(175, 148, 202, 0.5);
+      background-size: 200% 200%;
+      background-position: left;
+      user-select: none;
+    }
+    button:hover {
+      background-position: right;
+      box-shadow: 0 8px 25px rgba(118, 75, 162, 0.8);
+    }
+   </style>
+</head>
+<body>
+<div class="mainbox">
+  <h1 > CPU SCHEDULING SIMULATION </h1>
+    <div class="section" > 
+        <!--for selecting the algorithm -->
+        <label for="algorithms ">Select Algorithm</label>
+        <select id="algorithm">
+            <option value="FCFS">FIRST COME FIRST SERVE(FCFS)</option>
+            <option value="SJF">SHORTEST JOB FIRST(SJF) </option>
+            <option value="SRTN">SHORTEST REMAINING TIME NEXT (SRTN)</option>
+            <option value="PRIORITY ">PRIORITY </option>
+            <option value="RR">ROUND ROBIN (RR)</option>
+      </select>
+    </div>
+
+<!-- for adding the no of processes -->
+    <div class="section">
+        <h2> Add Number Of Processes </h2>
+        <label for="arrival time ">  Enter Arival Time : </label>
+        <input type="number" id="arrivaltime " placeholder="e.g. 1">
+        <label for="burst time  ">  Enter Burst  Time :</label>
+        <input type="number" id="bursttime " placeholder="e.g. 1">
+        <label for="= priority" > Priority (opt) : </label>
+        <input type="number" id="priority" placeholder="e.g. 1">
+
+    </div>
+    <!-- for creating the table for entered processes-->
+     <div class="section">
+        <h2> Total Number Of Processes </h2>
+        <table id="process_table"> 
+            <thead>
+            <tr>
+                <th scope="col"> Process Id</th>    <!--scope defines that this is header for the column-->
+                <th scope="col"> Arrival Time </th>
+                <th scope="col">Burst Time </th>
+                <th scope="col"> Priority</th>
+            </tr>
+            </thead>
+            <tbody> 
+                <!-- will be generated dynamically -->
+            </tbody>
+        </table>
+     </div>
+     <div class="section"> 
+        <button id="simulate"> Simulate</button>
+     </div>
+     <div class="section">
+        <h2> Simulation Tab</h2>
+        <pre id="log"> </pre>
+     </div>
+     <!-- Gantt chart-->
+      <div id="ganttchart" class="section " > 
+        <h2> Gantt Chart </h2>
+        <div id="gantt">
+        <div id="timeline"> </div>
+        <!-- dynamically generated-->
+        </div>
+      </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
