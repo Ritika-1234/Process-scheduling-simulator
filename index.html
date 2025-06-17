@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
   <!-- CSS PART -->
@@ -40,9 +41,9 @@
         color:rgb(252, 252, 252);
         text-shadow:  0 6px 7px rgba(0,0,0,10);
 
-          white-space: nowrap;/*prevent text from wrappng*/
+          white-space: nowrap;/prevent text from wrappng/
         overflow:hidden;/* hide the text*/
-        width: 0;/*for starting with 0 width*/
+        width: 0;/for starting with 0 width/
         padding-left: 50px;
          animation: typing 3s steps(30) forwards, blink 0.7s steps(1) infinite;
        
@@ -59,7 +60,7 @@
           font-weight: 700;
           margin-right:10px;
           font-size: 20px;
-          user-select: none; /*this is used so that user can not select the label text*/
+          user-select: none; /this is used so that user can not select the label text/
         }
          select, option { /* targeting all the options of select*/
           width:350px;
@@ -69,21 +70,23 @@
           font-weight: 500;
           border: 2px solid rgb(106, 55, 153);
           border-radius:15px;
-          background: rgb(133, 139, 219) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><polygon points="0,0 10,0 5,5" fill="white"/></svg>') no-repeat right 10px center; /* Custom arrow */
+          cursor: pointer;
+          background: rgb(133, 139, 219);
           appearance: none;
           background-size: 10px;
           color:white;
           letter-spacing: 1px;
          }
          input{
-           width:90px;
+           width:80px;
           padding: 8px 12px;
           font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
           font-size: 12px;
           font-weight: 500;
-          border: 2px solid rgb(106, 55, 153);
+          border: 2px solid rgb(82, 95, 167);
+          cursor: pointer;
           border-radius:15px;
-          background: rgb(133, 139, 219) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><polygon points="0,0 10,0 5,5" fill="white"/></svg>') no-repeat right 10px center; /* Custom arrow */
+          background: rgb(133, 139, 219);
           appearance: none;
           background-size: 10px;
           color:rgb(56, 55, 55);
@@ -118,6 +121,123 @@
       background-position: right;
       box-shadow: 0 8px 25px rgba(118, 75, 162, 0.8);
     }
+    .section{
+      margin-bottom: 40px;
+    }
+
+
+
+      table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 10px;
+      border-radius: 12px;
+      font-size: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      background: rgba(32, 38, 54, 0.8);
+      user-select: none;
+    }
+    th, td {
+      padding: 14px 20px;
+      text-align: center;
+      color: #cfd8dc;
+    }
+    th {
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+    td {
+      background: rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      border-radius: 0;
+      transition: background-color 0.3s ease;
+    }
+    tr:hover td {
+      background-color: rgba(118, 75, 162, 0.3);
+      color: #fff;
+    }
+     #log {
+      background-color: rgba(24, 28, 44, 0.9);
+      color: #a9b3c1;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 20px;
+      height: 180px;
+      overflow-y: auto;
+      border-radius: 15px;
+      border: 1px solid #475569;
+    
+      margin-top: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.45);
+      user-select: none;
+      cursor:pointer;
+    }
+    
+    #gantt-container {
+      margin-top: 45px;
+    }
+#gantt {
+      position: relative;
+      width: 100%;
+      background: #1a1f36;
+      border-radius: 15px;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 25px 0 45px 60px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+      user-select: none;
+      border: 1px solid #584e86;
+      min-height: 160px;
+    }
+
+      #timeline {
+      position: absolute;
+      top: 0;
+      left: 60px;
+      height: 35px;
+      border-bottom: 1.5px solid #75509a;
+      width: 100%;
+      white-space: nowrap;
+      user-select: none;
+    }
+     .timeline-scale {
+      display: inline-block;
+      width: 35px;
+      text-align: center;
+      font-size: 13px;
+      color: #a3a7c4;
+      border-left: 1.5px solid #575496;
+      line-height: 35px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+    }
+      .timeline-scale:first-child {
+      border-left: none;
+    }
+    /* individual Gantt bars */
+    .gantt-bar {
+      position: absolute;
+      height: 32px;
+      border-radius: 12px;
+      color: white;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: default;
+      user-select: none;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.45);
+      letter-spacing: 0.8px;
+      font-size: 15px;
+      transition: transform 0.15s ease, box-shadow 0.3s ease;
+    }
+    .gantt-bar:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(118, 75, 162, 0.9);
+      z-index: 10;
+    }
    </style>
 </head>
 <body>
@@ -130,7 +250,6 @@
             <option value="FCFS">FIRST COME FIRST SERVE(FCFS)</option>
             <option value="SJF">SHORTEST JOB FIRST(SJF) </option>
             <option value="SRTN">SHORTEST REMAINING TIME NEXT (SRTN)</option>
-            <option value="PRIORITY ">PRIORITY </option>
             <option value="RR">ROUND ROBIN (RR)</option>
       </select>
     </div>
@@ -138,13 +257,13 @@
 <!-- for adding the no of processes -->
     <div class="section">
         <h2> Add Number Of Processes </h2>
-        <label for="arrival time ">  Enter Arival Time : </label>
-        <input type="number" id="arrivaltime " placeholder="e.g. 1">
-        <label for="burst time  ">  Enter Burst  Time :</label>
-        <input type="number" id="bursttime " placeholder="e.g. 1">
+        <label for="arrivaltime ">  Enter Arival Time : </label>
+        <input type="number" id="arrivaltime" placeholder="e.g. 1">
+        <label for="bursttime  ">  Enter Burst  Time :</label>
+        <input type="number" id="bursttime" placeholder="e.g. 1">
         <label for="= priority" > Priority (opt) : </label>
         <input type="number" id="priority" placeholder="e.g. 1">
-
+       <button id="add_process" aria-label="Add process">Add Process</button>
     </div>
     <!-- for creating the table for entered processes-->
      <div class="section">
@@ -179,14 +298,190 @@
         </div>
       </div>
     </div>
+    <!-- js portion-->
+     <script>
+       const processes = [];
+    let pidCounter = 1;
+
+    // Color palette for process bars
+    const colors = [
+      '#7B68EE', '#FF6F61', '#FFA500', '#3CB371', '#1E90FF',
+      '#FF69B4', '#BA55D3', '#20B2AA', '#F39C12', '#00CED1'
+    ];
+
+    function updateProcessTable() {
+      const tbody = $('#process_table tbody');
+      tbody.empty();
+      processes.forEach(proc => {
+        const priorityText = (proc.priority !== null && proc.priority !== undefined) ? proc.priority : '';
+        tbody.append(
+          `<tr>
+            <td>${proc.pid}</td>
+            <td>${proc.arrival_time}</td>
+            <td>${proc.burst_time}</td>
+            <td>${priorityText}</td>
+          </tr>`
+        );
+      });
+    }
+
+    $('#add_process').click(function() {
+      const arrival_time = parseInt($('#arrivaltime').val());
+      const burst_time = parseInt($('#bursttime').val());
+      const priority_input = $('#priority').val();
+      const priority = priority_input === '' ? null : parseInt(priority_input);
+
+      if (isNaN(arrival_time) || arrival_time < 0) {
+        alert('Please enter a valid non-negative Arrival Time.');
+        return;
+      }
+      if (isNaN(burst_time) || burst_time <= 0) {
+        alert('Please enter a valid positive Burst Time.');
+        return;
+      }
+      if (priority_input !== '' && (isNaN(priority) || priority <= 0)) {
+        alert('Priority must be a positive integer if specified.');
+        return;
+      }
+      // ajax is ashynchronous js and xml query used to communicate with server
+  
+      $.ajax({
+        type: 'POST',
+        url: '/add_process',
+        contentType: 'application/json',
+        data: JSON.stringify({
+          arrival_time: arrival_time,
+          burst_time: burst_time,
+          priority: priority
+        }),
+        success: function(response) {
+          if (response.status === 'success') {
+            processes.push({
+              pid: pidCounter++,
+              arrival_time: arrival_time,
+              burst_time: burst_time,
+              priority: priority
+            });
+            updateProcessTable();
+
+            // Clear inputs
+            $('#arrivaltime').val('');
+            $('#bursttime').val('');
+            $('#priority').val('');
+          } else {
+            alert('Failed to add process.');
+          }
+        },
+        error: function() {
+          alert('Error communicating with server.');
+        }
+      });
+
+    });
+
+
+
+  
+    $('#simulate').click(function() {
+      if (processes.length === 0) {
+        alert("Please add at least one process before simulation.");
+        return;
+      }
+
+      const algorithm = $('#algorithm').val();
+      $('#log').text('Running simulation...');
+      $('#gantt-container').hide();
+
+      $.ajax({
+        type: 'POST',
+        url: '/simulate',
+        contentType: 'application/json',
+        data: JSON.stringify({ algorithm: algorithm }),
+        success: function(response) {
+          const logs = response.log || [];
+          $('#log').text(logs.join('\n'));
+
+          if (response.timeline) {
+            drawGanttChart(response.timeline);
+          } else {
+            $('#gantt-container').hide();
+          }
+        },
+        error: function() {
+          alert('Error during simulation.');
+          $('#log').text('');
+          $('#gantt-container').hide();
+        }
+      });
+    });
+
+   // Draw the timeline scale with units for time
+    function drawTimeline(maxEnd) {
+      const timeline = $('#timeline');
+      timeline.empty();
+      for(let i=0; i<=maxEnd; i++) {
+        const scaleDiv = $('<div>').addClass('timeline-scale').text(i);
+        timeline.append(scaleDiv);
+      }
+      // Set timeline width to maxEnd * 35px (same as bars)
+      timeline.css('width', (maxEnd * 35) + 'px');
+    }
+
+    function drawGanttChart(timeline) {
+      if (!timeline.length) {
+        $('#gantt-container').hide();
+        return;
+      }
+      $('#gantt-container').show();
+
+      const gantt = $('#gantt');
+      // Clear previous bars except timeline
+      gantt.children('.gantt-bar').remove();
+
+      const maxEnd = Math.max(...timeline.map(t => t.end));
+      drawTimeline(maxEnd);
+
+      const laneHeight = 32;
+      const laneGap = 10;
+
+      // Group runs by pid
+      const runsByPid = {};
+      timeline.forEach(run => {
+        if (!runsByPid[run.pid]) runsByPid[run.pid] = [];
+        runsByPid[run.pid].push(run);
+      });
+      const sortedPids = Object.keys(runsByPid).map(x=>parseInt(x)).sort((a,b)=>a-b);
+
+      sortedPids.forEach((pid, laneIndex) => {
+        const runs = runsByPid[pid];
+        const verticalPos = 45 + laneIndex * (laneHeight + laneGap);
+
+        runs.forEach(run => {
+          const bar = $('<div>').addClass('gantt-bar');
+          const startX = run.start * 35;
+          const duration = (run.end - run.start);
+          bar.css({
+            top: verticalPos + 'px',
+            left: (startX + 60) + 'px',
+            width: (duration * 35) + 'px',
+            height: laneHeight + 'px',
+            backgroundColor: colors[(pid - 1) % colors.length],
+            position: 'absolute'
+          });
+          bar.text('P' + pid);
+          gantt.append(bar);
+        });
+      });
+
+      const totalHeight = 45 + sortedPids.length * (laneHeight + laneGap) + 15;
+      gantt.css('height', totalHeight + 'px');
+    }
+
+
+
+     </script>
 </body>
 </html>
-
-
-
-
-
-
 
 
 
